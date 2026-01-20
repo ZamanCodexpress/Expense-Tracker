@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>💰 Expense Tracker</h1>
+        <p class="subtitle">Track your daily expenses by category</p>
+      </header>
+
+      <!-- Expense Entry Form -->
+      <section class="expense-form-section">
+        <h2>Add New Expense</h2>
+        <form id="expenseForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expenseDate">Date</label>
+              <input type="date" id="expenseDate" required />
+            </div>
+            <div class="form-group">
+              <label for="expenseCategory">Category</label>
+              <select id="expenseCategory" required>
+                <option value="">Select Category</option>
+                <option value="fuel">Fuel</option>
+                <option value="food">Food</option>
+                <option value="travel">Travel</option>
+                <option value="utilities">Utilities</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="shopping">Shopping</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="expenseAmount">Amount</label>
+              <input
+                type="number"
+                id="expenseAmount"
+                step="0.01"
+                min="0"
+                placeholder="0.00"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="expenseDescription">Description</label>
+            <input
+              type="text"
+              id="expenseDescription"
+              placeholder="Enter description (optional)"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Add Expense</button>
+        </form>
+      </section>
+
+      <!-- Analytics Dashboard -->
+      <section class="analytics-section">
+        <h2>Analytics Dashboard</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Expenses</div>
+            <div class="stat-value" id="totalExpenses">$0.00</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">This Week</div>
+            <div class="stat-value" id="weekExpenses">$0.00</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">This Month</div>
+            <div class="stat-value" id="monthExpenses">$0.00</div>
+          </div>
+        </div>
+        <div class="charts-grid">
+          <div class="chart-container">
+            <h3>Category Breakdown</h3>
+            <canvas id="categoryChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h3>Weekly Spending</h3>
+            <canvas id="weeklyChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h3>Monthly Spending</h3>
+            <canvas id="monthlyChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expenses Table -->
+      <section class="expenses-section">
+        <h2>All Expenses</h2>
+        <div class="filters">
+          image.png
+          <div class="filter-group">
+            <label for="filterCategory">Filter by Category:</label>
+            <select id="filterCategory">
+              <option value="">All Categories</option>
+              <option value="fuel">Fuel</option>
+              <option value="food">Food</option>
+              <option value="travel">Travel</option>
+              <option value="utilities">Utilities</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="shopping">Shopping</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterDateFrom">From:</label>
+            <input type="date" id="filterDateFrom" />
+          </div>
+          <div class="filter-group">
+            <label for="filterDateTo">To:</label>
+            <input type="date" id="filterDateTo" />
+          </div>
+          <button type="button" class="btn btn-secondary" id="clearFilters">
+            Clear Filters
+          </button>
+        </div>
+        <div class="table-container">
+          <table id="expensesTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="expensesTableBody">
+              <tr>
+                <td colspan="5" class="empty-message">
+                  No expenses yet. Add your first expense above!
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Expense</h2>
+        <form id="editForm">
+          <input type="hidden" id="editId" />
+          <div class="form-group">
+            <label for="editDate">Date</label>
+            <input type="date" id="editDate" required />
+          </div>
+          <div class="form-group">
+            <label for="editCategory">Category</label>
+            <select id="editCategory" required>
+              <option value="fuel">Fuel</option>
+              <option value="food">Food</option>
+              <option value="travel">Travel</option>
+              <option value="utilities">Utilities</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="shopping">Shopping</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editAmount">Amount</label>
+            <input type="number" id="editAmount" step="0.01" min="0" required />
+          </div>
+          <div class="form-group">
+            <label for="editDescription">Description</label>
+            <input type="text" id="editDescription" />
+          </div>
+          <button type="submit" class="btn btn-primary">Update Expense</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
