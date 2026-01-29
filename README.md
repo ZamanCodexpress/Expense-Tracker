@@ -1,0 +1,55 @@
+Expense Tracker:
+A client-side expense tracking web application built using HTML, CSS, and vanilla JavaScript. 
+The application allows users to record, manage, and analyze personal expenses with persistent storage and visual analytics.
+
+Description:
+This project is a single-page frontend application that enables users to track daily expenses by category and date.
+It provides real-time summaries and visual insights using charts, while storing data locally in the browser. 
+The goal of the project is to demonstrate practical frontend development skills, including DOM manipulation, state management, and data visualization without relying on frameworks.
+
+Features:
+.Create, edit, and delete expense entries
+.Categorize expenses and add optional descriptions
+.Filter expenses by category and date range
+.Persistent storage using the browser LocalStorage API
+.Automatic calculation of total, weekly, and monthly expenses
+.Data visualization using Chart.js
+.Responsive layout for desktop and mobile devices
+
+Technologies Used:
+.HTML5
+.CSS3
+.JavaScript (ES6+)
+.Chart.js
+.Web Storage API (LocalStorage)
+
+Project Structure:
+expense-tracker/
+├── index.html
+├── styles.css
+├── script.js
+└── README.md
+
+Setup and Usage:
+Clone the repository-git clone https://github.com/your-username/expense-tracker.git
+Download file as a .zip File extract and use in Github.
+Open index.html in a modern web browser.
+No additional dependencies or build steps are required.
+
+Implementation Details:
+.Application state is managed in memory and synchronized with LocalStorage.
+.Expenses are sorted by date to ensure recent entries appear first.
+.Analytics are recalculated and re-rendered on every data change.
+.Charts are destroyed and recreated to ensure accurate visualization updates.
+.UI logic, data handling, and analytics calculations are kept logically separated.
+
+Limitations:
+.Data is stored per browser and device.
+.Currency is fixed and not configurable.
+.No backend, authentication, or multi-user support.
+
+License:
+This project is open-source and intended for educational and portfolio use.
+
+Author:
+Developed as a frontend project to demonstrate practical JavaScript and UI development skills.
