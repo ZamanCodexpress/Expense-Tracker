@@ -1,0 +1,17 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="32" y1="32" x2="224" y2="224">
+      <stop stop-color="#667EEA"></stop>
+      <stop offset="1" stop-color="#764BA2"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="16" y="16" width="224" height="224" rx="56" fill="url(#bg)"></rect>
+
+  <!-- Minimal chart -->
+  <path d="M68 164L108 124L138 144L188 92" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Arrow -->
+  <path d="M164 92H188V116" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
